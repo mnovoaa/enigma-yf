@@ -1,0 +1,39 @@
+# ── Archivos crudos de uploads (no van al repo) ──────
+uploads/
+
+# ── Archivos de dev / herramientas ───────────────────
+tweaks-panel.jsx
+tweaks-app.jsx
+
+# ── macOS ─────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# ── Windows ───────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ── Editores ──────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.sw?
+*.sln
+
+# ── Node (si se agregan herramientas de build) ────────
+node_modules/
+npm-debug.log*
+yarn-error.log
+
+# ── Variables de entorno ──────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Vercel build output ───────────────────────────────
+.vercel/

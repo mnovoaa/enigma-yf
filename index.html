@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="ENIGMA yf — Crónicas de Gotham. El joven Wayne. Talca, Chile. EP disponible en Spotify." />
+<meta name="theme-color" content="#000000" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ENIGMA yf · Crónicas de Gotham" />
+<meta property="og:description" content="El joven Wayne · Talca · 36°S — EP disponible en Spotify." />
+<meta property="og:image" content="assets/cover.jpeg" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ENIGMA yf · Crónicas de Gotham" />
+<meta name="twitter:description" content="El joven Wayne · Talca · 36°S" />
+<meta name="twitter:image" content="assets/cover.jpeg" />
+
+<title>ENIGMA yf · Crónicas de Gotham</title>
+
+<!-- Preload imagen crítica above-the-fold -->
+<link rel="preload" as="image" href="assets/cathedral.png" />
+
+<!-- Preconnect a servicios de fuentes -->
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Fonts -->
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=zodiak@300,400,500&f[]=tanker@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=JetBrains+Mono:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=UnifrakturCook:wght@700&display=swap" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ── BACKDROP ────────────────────────────────────────── -->
+<div class="backdrop" aria-hidden="true">
+  <div class="backdrop__img" id="cathedral"></div>
+  <div class="backdrop__glow"></div>
+  <div class="backdrop__vignette"></div>
+</div>
+<div class="veil" id="veil" aria-hidden="true"></div>
+
+<!-- bats fly across viewport -->
+<div class="batflight" id="batflight" aria-hidden="true"></div>
+
+<!-- overlays -->
+<div class="grain" id="grain" aria-hidden="true"></div>
+<div class="scanline" aria-hidden="true"></div>
+
+<!-- custom cursor (hidden on touch devices via CSS) -->
+<div class="cursor__ring" id="cursorRing" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ── HUD ─────────────────────────────────────────────── -->
+<header class="hud">
+  <a href="#portal" class="hud__mark" data-cursor="hover">
+    <!-- bat sigil -->
+    <svg viewBox="0 0 32 18" fill="currentColor" aria-hidden="true"><path d="M16 6c-1.3-2.5-3.8-3.8-7-3.2-2 .3-3.8 0-5-1.3.6 1.9 1.9 3.2 2.5 4.4-1.9 0-3.2.6-4.4 1.9 1.9 0 3.2.6 4.4 1.9C7.7 11 9.6 11.6 11.5 11.6c1.9 0 3.2-.6 4.5-1.9 1.3 1.3 2.5 1.9 4.5 1.9 1.9 0 3.8-.6 5-1.9 1.3-1.3 2.5-1.9 4.4-1.9-1.3-1.3-2.5-1.9-4.4-1.9.6-1.3 1.9-2.5 2.5-4.4-1.3 1.3-3.2 1.6-5 1.3-3.2-.6-5.6.7-7 3.2z"/></svg>
+    <span>ENIGMA <em style="font-style:italic;opacity:.6">yf</em></span>
+  </a>
+  <nav class="hud__nav" id="desktopNav" aria-label="Navegación principal">
+    <a href="#silencio" data-cursor="hover">manifesto</a>
+    <a href="#album" data-cursor="hover">música</a>
+    <a href="#cronicas" data-cursor="hover">crónicas</a>
+    <a href="#cosmos" data-cursor="hover">in god's hands</a>
+    <a href="#sigilo" data-cursor="hover">contacto</a>
+  </nav>
+  <div class="hud__meta">
+    <span class="hud__live">transmitiendo</span>
+    <span id="hudClock" aria-label="Hora actual">--:--</span>
+    <!-- Hamburger: visible sólo en móvil -->
+    <button class="hud__burger" id="navToggle"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+            aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ── MOBILE NAV OVERLAY ──────────────────────────────── -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Navegación móvil" aria-hidden="true">
+  <a href="#silencio" class="mobile-nav__link">manifesto</a>
+  <a href="#album" class="mobile-nav__link">música</a>
+  <a href="#cronicas" class="mobile-nav__link">crónicas</a>
+  <a href="#cosmos" class="mobile-nav__link">in god's hands</a>
+  <a href="#sigilo" class="mobile-nav__link">contacto</a>
+</nav>
+
+<main class="stack">
+
+  <!-- ── PORTAL ──────────────────────────────────────── -->
+  <section class="portal" id="portal" data-screen-label="01 Portal">
+    <span class="corner corner--tl" aria-hidden="true"><svg viewBox="0 0 18 18" stroke="currentColor" fill="none" stroke-width="1"><path d="M0 0h6M0 0v6M9 1v16M1 9h16"/></svg></span>
+    <span class="corner corner--tr" aria-hidden="true"><svg viewBox="0 0 18 18" stroke="currentColor" fill="none" stroke-width="1"><path d="M12 0h6M18 0v6M9 1v16M1 9h16"/></svg></span>
+    <span class="corner corner--bl" aria-hidden="true"><svg viewBox="0 0 18 18" stroke="currentColor" fill="none" stroke-width="1"><path d="M0 12v6M0 18h6M9 1v16M1 9h16"/></svg></span>
+    <span class="corner corner--br" aria-hidden="true"><svg viewBox="0 0 18 18" stroke="currentColor" fill="none" stroke-width="1"><path d="M12 18h6M18 12v6M9 1v16M1 9h16"/></svg></span>
+
+    <div class="portal__inner">
+      <div class="portal__above">
+        <span>cap. 01 — el portón se abre</span>
+      </div>
+
+      <h1 class="portal__mark">Enigma<span class="yf">yf</span></h1>
+
+      <p class="portal__sub">
+        EL JOVEN WAYNE <span class="sep">✦</span> TALCA <span class="sep">✦</span> 36°S
+      </p>
+
+      <div class="portal__lat">
+        <span><i class="dot" aria-hidden="true"></i> MMXXVI</span>
+        <span><i class="dot" aria-hidden="true"></i> CRÓNICAS DE GOTHAM</span>
+        <span><i class="dot" aria-hidden="true"></i> ENMASCARADO</span>
+      </div>
+    </div>
+
+    <a href="#silencio" class="portal__scroll" data-cursor="hover">
+      <span>desciende</span>
+      <span class="portal__scroll-line" aria-hidden="true"></span>
+    </a>
+  </section>
+
+  <!-- ── SILENCIO / manifesto ────────────────────────── -->
+  <section class="silencio" id="silencio" data-screen-label="02 Silencio">
+    <div class="silencio__inner">
+
+      <div class="silencio__sigil" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+          <circle cx="32" cy="32" r="30" opacity=".25"/>
+          <path d="M32 14v36" />
+          <path d="M22 26c4 6 16 6 20 0" />
+          <path d="M26 38c3 3 9 3 12 0" opacity=".6"/>
+          <circle cx="32" cy="50" r="2" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <p class="silencio__quote">
+        Que el arte se juzgue por <em>lo que dice</em> — no por quién lo dice, ni por dónde vino. La máscara es el argumento.
+      </p>
+
+      <div class="silencio__attr">
+        <span>fragmento — manifiesto</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- divider -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width=".8"><path d="M7 0v14M0 7h14M1 1l12 12M13 1L1 13"/></svg>
+    <span>capítulo segundo</span>
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width=".8"><path d="M7 0v14M0 7h14M1 1l12 12M13 1L1 13"/></svg>
+  </div>
+
+  <!-- ── ÁLBUM ───────────────────────────────────────── -->
+  <section class="album" id="album" data-screen-label="03 Album">
+    <div class="album__head">
+      <h2>Pa <em>Que</em> Las<br />Escuches <em>en</em> Spoti</h2>
+      <div class="album__meta">
+        <div>EP · <span>05 cortes</span></div>
+        <div>PROD. <span>MOTTO</span></div>
+        <div>LANZAMIENTO · <span>MMXXVI</span></div>
+        <div>DURACIÓN · <span>17:42</span></div>
+      </div>
+    </div>
+
+    <div class="album__body">
+      <div class="cover" data-cursor="hover" id="cover">
+        <img src="assets/cover.jpeg"
+             alt="Portada del EP — Pa que las escuches en Spoti, ENIGMA yf"
+             loading="lazy"
+             decoding="async" />
+        <div class="cover__overlay" aria-hidden="true"></div>
+        <div class="cover__corner" aria-hidden="true">
+          <span>ENIGMA · yf</span>
+          <span id="coverTime">00:00 / 17:42</span>
+        </div>
+        <div class="cover__bar" aria-hidden="true"><div id="coverBar" style="width:0%"></div></div>
+      </div>
+
+      <div>
+        <div class="tracklist" id="tracklist" role="list" aria-label="Lista de canciones">
+          <!-- tracks rendered by JS -->
+        </div>
+
+        <div class="album__cta">
+          <a href="#" class="btn btn--filled" data-cursor="hover"
+             rel="noopener noreferrer"
+             aria-label="Escuchar en Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm5.5 17.3a.75.75 0 01-1 .25c-2.8-1.7-6.3-2.1-10.4-1.1a.75.75 0 11-.3-1.45c4.5-1.1 8.4-.6 11.5 1.3.4.2.5.7.2 1zm1.5-3.3a.94.94 0 01-1.3.3c-3.2-2-8.1-2.5-11.9-1.4a.94.94 0 11-.5-1.8c4.4-1.3 9.8-.7 13.5 1.5.4.3.5.9.2 1.4zm.1-3.4c-3.9-2.3-10.3-2.5-14-1.4a1.13 1.13 0 11-.6-2.16c4.3-1.3 11.4-1 15.9 1.6a1.13 1.13 0 01-1.3 2z"/></svg>
+            <span>Escuchar en spotify</span>
+          </a>
+          <a href="#" class="btn" data-cursor="hover"
+             rel="noopener noreferrer"
+             aria-label="Ver videoclip en YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.3 6.6a3 3 0 00-2.1-2.1C19.5 4 12 4 12 4s-7.5 0-9.2.5a3 3 0 00-2.1 2.1C0 8.3 0 12 0 12s0 3.7.7 5.4a3 3 0 002.1 2.1c1.7.5 9.2.5 9.2.5s7.5 0 9.2-.5a3 3 0 002.1-2.1c.7-1.7.7-5.4.7-5.4s0-3.7-.7-5.4zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+            <span>Ver videoclip</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- divider -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width=".8"><circle cx="7" cy="7" r="6"/><circle cx="7" cy="7" r="2" fill="currentColor"/></svg>
+    <span>capítulo tercero</span>
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width=".8"><circle cx="7" cy="7" r="6"/><circle cx="7" cy="7" r="2" fill="currentColor"/></svg>
+  </div>
+
+  <!-- ── CRÓNICAS DE GOTHAM ──────────────────────────── -->
+  <section class="cronicas" id="cronicas" data-screen-label="04 Cronicas">
+    <div class="cronicas__head">
+      <h2 class="cronicas__title">Crónicas <span class="it">de</span> Gotham —<br />una ciudad propia.</h2>
+      <p class="cronicas__body">
+        <strong>Gotham no está en el mapa.</strong> Es de noche, siempre. Camina con capucha, mira al suelo, lleva el dedo en los labios.
+        El joven Wayne edifica catedrales con líneas de tinta y duerme entre constelaciones. Lo táctico choca con lo sacro, y de ese choque sale la canción.
+      </p>
+    </div>
+
+    <div class="gallery">
+      <figure class="frame frame--a" data-cursor="hover">
+        <img src="assets/figure-1.jpeg" alt="Figura encapuchada — el silencio" loading="lazy" decoding="async" />
+        <div class="frame__date" aria-hidden="true">N° 001 · TLC</div>
+        <div class="frame__caption" aria-hidden="true"><span>el silencio</span><span>03:14 am</span></div>
+      </figure>
+      <figure class="frame frame--b" data-cursor="hover">
+        <img src="assets/figure-2.jpeg" alt="Figura encapuchada — saint, camo digital" loading="lazy" decoding="async" />
+        <div class="frame__date" aria-hidden="true">N° 002 · TLC</div>
+        <div class="frame__caption" aria-hidden="true"><span>saint — camo digital</span><span>02:08 am</span></div>
+      </figure>
+      <figure class="frame frame--c" data-cursor="hover">
+        <img src="assets/figure-3.jpeg" alt="Figura encapuchada — desierto" loading="lazy" decoding="async" />
+        <div class="frame__date" aria-hidden="true">N° 003 · TLC</div>
+        <div class="frame__caption" aria-hidden="true"><span>desierto</span><span>05:41 am</span></div>
+      </figure>
+      <figure class="frame frame--d" data-cursor="hover">
+        <img src="assets/figure-4.jpeg" alt="Figura encapuchada — balaclava" loading="lazy" decoding="async" />
+        <div class="frame__date" aria-hidden="true">N° 004 · TLC</div>
+        <div class="frame__caption" aria-hidden="true"><span>balaclava</span><span>01:22 am</span></div>
+      </figure>
+      <figure class="frame frame--e" data-cursor="hover">
+        <img src="assets/cathedral-photo.png" alt="Fachada de basílica — Gotham" loading="lazy" decoding="async" />
+        <div class="frame__date" aria-hidden="true">N° 005 · GTH</div>
+        <div class="frame__caption" aria-hidden="true"><span>basílica</span><span>23:55 pm</span></div>
+      </figure>
+      <figure class="frame frame--f" data-cursor="hover">
+        <img src="assets/cosmos-1.jpeg" alt="Detalle del cosmos" loading="lazy" decoding="async" />
+        <div class="frame__date" aria-hidden="true">N° 006 · ∞</div>
+        <div class="frame__caption" aria-hidden="true"><span>el cosmos</span><span>--:--</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- divider -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width=".8"><path d="M7 0l1.8 5.5H14l-4.4 3.2 1.7 5.3L7 10.8l-4.3 3.2 1.7-5.3L0 5.5h5.2z"/></svg>
+    <span>capítulo cuarto</span>
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width=".8"><path d="M7 0l1.8 5.5H14l-4.4 3.2 1.7 5.3L7 10.8l-4.3 3.2 1.7-5.3L0 5.5h5.2z"/></svg>
+  </div>
+
+  <!-- ── COSMOS / IN GOD'S HANDS ─────────────────────── -->
+  <section class="cosmos" id="cosmos" data-screen-label="05 Cosmos">
+    <h2 class="cosmos__script">in God's hands</h2>
+    <p class="cosmos__verse">
+      La rudeza y la delicadeza viven en la misma imagen. Camo y caligrafía. Pistola y plegaria. Lo que se reza en susurro pesa más que lo que se grita.
+    </p>
+
+    <div class="cosmos__stats">
+      <div class="stat"><span class="stat__num">189</span>oyentes mensuales</div>
+      <div class="stat"><span class="stat__num">05</span>cortes en el EP</div>
+      <div class="stat"><span class="stat__num">∞</span>universo</div>
+    </div>
+  </section>
+
+  <!-- ── SIGILO / footer ─────────────────────────────── -->
+  <section class="sigilo" id="sigilo" data-screen-label="06 Sigilo">
+
+    <div class="sigilo__bat" aria-hidden="true">
+      <svg viewBox="0 0 100 50" fill="currentColor">
+        <path d="M50 18c-4-8-12-12-22-10-6 1-12 0-16-4 2 6 6 10 8 14-6 0-10 2-14 6 6 0 10 2 14 6 4 4 10 6 16 6 6 0 10-2 14-6 4 4 8 6 14 6 6 0 12-2 16-6 4-4 8-6 14-6-4-4-8-6-14-6 2-4 6-8 8-14-4 4-10 5-16 4-10-2-18 2-22 10z"/>
+      </svg>
+    </div>
+
+    <p class="sigilo__line">la noche te escucha.</p>
+
+    <nav class="sigilo__contact" aria-label="Redes sociales y contacto">
+      <a href="#" data-cursor="hover" rel="noopener noreferrer"><i class="dot" aria-hidden="true"></i>spotify</a>
+      <a href="#" data-cursor="hover" rel="noopener noreferrer"><i class="dot" aria-hidden="true"></i>instagram</a>
+      <a href="#" data-cursor="hover" rel="noopener noreferrer"><i class="dot" aria-hidden="true"></i>youtube</a>
+      <a href="mailto:booking@enigma.yf" data-cursor="hover"><i class="dot" aria-hidden="true"></i>booking @ enigma.yf</a>
+    </nav>
+
+    <div class="foot">
+      <span>ENIGMA yf · MMXXVI</span>
+      <span>Talca · 36°S 71°W</span>
+      <span>todos los derechos en silencio</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- main page behavior — sin React ni Babel en producción -->
+<script src="enigma.js"></script>
+
+</body>
+</html>
