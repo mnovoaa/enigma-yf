@@ -1,7 +1,20 @@
-# ENIGMA yf · Crónicas de Gotham
+<p align="center">
+  <img src="assets/preview.webp" alt="Sitio de ENIGMA yf" width="840">
+</p>
+
+<h1 align="center">ENIGMA yf · Crónicas de Gotham</h1>
+<p align="center"><b>Mundo de artista · dirección gótica · by ShowUp</b></p>
+<p align="center"><a href="https://enigma-yf.vercel.app"><b>🔗 enigma-yf.vercel.app</b></a></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black">
+  <img src="https://img.shields.io/badge/Vercel-deploy-000000?logo=vercel">
+</p>
+
+> Parallax, cursor personalizado, murciélagos animados y tracklist interactivo. Vanilla, sin build.
 
 Sitio web oficial de **ENIGMA yf** — el joven Wayne. Talca, Chile · 36°S.
-
 EP: *Pa Que Las Escuches en Spoti* — 05 cortes, prod. MOTTO, MMXXVI.
 
 ---
